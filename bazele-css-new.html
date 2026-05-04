@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flexbox — Curs Video Complet</title>
+  <title>Colors & Backgrounds — Curs Video Complet</title>
 
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -43,7 +43,7 @@
           <h3>De ce sunt importante culori?</h3>
           <p><strong>Culori sunt fundamentale</strong> pentru designul web. Ele transmit emoții, crează contrast, îmbunătățesc readibilitatea și construiesc identitatea brand-ului.</p>
           <p><strong>Principii de bază:</strong> Contrast suficient, paletă consistentă, accesibilitate (WCAG), psihologia culorilor.</p>
-          <p><strong>CSS oferă 4 moduri principale</strong> să specifici culori: nume, hex, rgb/rgba, hsl/hsla.</p>
+          <p><strong>CSS oferă 6 moduri principale</strong> să specifici culori: nume, hex, rgb, rgba, hsl, hsla.</p>
         </div>
       </div>
 
@@ -81,7 +81,7 @@
 
         <div class="format-card">
           <div class="format-demo" style="background: rgba(255, 99, 71, 0.7);"></div>
-          <h4>4. RGBA (RGB + Alpha/Transparență)</h4>
+          <h4>4. RGBA (RGB + Alpha)</h4>
           <p style="font-size: 13px;">Format: rgba(R, G, B, A) — A este opacitate 0-1.</p>
           <pre class="cod-bloc"><span class="prop">background</span>: <span class="val">rgba(255, 99, 71, 0.8)</span>;
 <span class="prop">box-shadow</span>: <span class="val">rgba(0, 0, 0, 0.2)</span>;
@@ -139,7 +139,6 @@
     </div>
   </section>
 
-
   <!-- ══════════════════════════════════
        SECȚIUNEA 2 — BACKGROUNDS & GRADIENTS
   ══════════════════════════════════ -->
@@ -153,8 +152,7 @@
         <div class="prop-card">
           <h4>background-color</h4>
           <p class="prop-desc">Culoarea de fundal a elementului</p>
-          <div class="demo-showcase" style="background-color: #0096C7; border: none;">
-          </div>
+          <div class="demo-showcase" style="background-color: #0096C7; border: none;"></div>
           <pre class="cod-bloc"><span class="prop">background-color</span>: <span class="val">#0096C7</span>;
 <span class="prop">background-color</span>: <span class="val">rgb(0, 150, 199)</span>;
 <span class="prop">background-color</span>: <span class="val">rgba(0, 150, 199, 0.5)</span>;</pre>
@@ -219,7 +217,6 @@
       </div>
     </div>
   </section>
-
 
   <!-- ══════════════════════════════════
        SECȚIUNEA 3 — GRADIENTS
@@ -302,210 +299,170 @@
       </div>
     </div>
   </section>
-  <section id="interactive">
+
+  <!-- ══════════════════════════════════
+       SECȚIUNEA 4 — INTERACTIVE USE CASES
+  ══════════════════════════════════ -->
+  <section id="interactive" class="sectiune-alba">
     <div class="container">
-      <h2 class="titlu-sectiune">3. Cazuri de Utilizare — Interactiv</h2>
-      <p class="subtitlu-sectiune">Exemplele reale unde se folosește Flexbox — selectează pentru a vedea codul</p>
+      <h2 class="titlu-sectiune">4. Cazuri de Utilizare — Interactiv</h2>
+      <p class="subtitlu-sectiune">Aplicații practice ale culorilor și background-urilor — selectează pentru a vedea codul</p>
 
       <div class="use-cases-controls">
-        <button class="use-case-btn active" onclick="switchUseCase('navbar')">🧭 Navbar</button>
-        <button class="use-case-btn" onclick="switchUseCase('cards')">🎴 Card Grid</button>
-        <button class="use-case-btn" onclick="switchUseCase('form')">📋 Form Layout</button>
-        <button class="use-case-btn" onclick="switchUseCase('buttons')">🔘 Button Group</button>
-        <button class="use-case-btn" onclick="switchUseCase('sidebar')">📌 Sidebar Layout</button>
-        <button class="use-case-btn" onclick="switchUseCase('center')">⭐ Center Content</button>
+        <button class="use-case-btn active" onclick="switchUseCase('hero')">🎨 Hero Section</button>
+        <button class="use-case-btn" onclick="switchUseCase('cards')">🎴 Color Cards</button>
+        <button class="use-case-btn" onclick="switchUseCase('button')">🔘 Gradient Button</button>
+        <button class="use-case-btn" onclick="switchUseCase('overlay')">🌄 Image Overlay</button>
+        <button class="use-case-btn" onclick="switchUseCase('text')">✍️ Text on Gradient</button>
+        <button class="use-case-btn" onclick="switchUseCase('border')">🎯 Gradient Border</button>
       </div>
 
-      <!-- USE CASE 1: Navbar -->
-      <div class="use-case active" id="use-case-navbar">
-        <h3>🧭 Navbar — Meniu pe orizontală</h3>
-        <p class="use-case-desc">Utilizări: Site-uri, aplicații web, menu-uri fixe</p>
+      <!-- USE CASE 1: Hero Section -->
+      <div class="use-case active" id="use-case-hero">
+        <h3>🎨 Hero Section — Fundal cu gradient</h3>
+        <p class="use-case-desc">Utilizări: Landing pages, hero sections, motivație vizuală</p>
         
-        <div class="demo-showcase">
-          <div class="navbar-demo">
-            <div class="nav-logo">LOGO</div>
-            <div class="nav-links">
-              <a href="#">Home</a>
-              <a href="#">Services</a>
-              <a href="#">About</a>
-              <a href="#">Contact</a>
-            </div>
-            <div class="nav-btn">Sign Up</div>
+        <div class="demo-showcase demo-hero">
+          <div style="text-align: center; color: white;">
+            <h2 style="margin: 0 0 12px 0; font-size: 32px;">Titlu Atractiv</h2>
+            <p style="margin: 0; font-size: 16px;">Descriere sub titlu</p>
           </div>
         </div>
 
-        <pre class="cod-bloc"><span class="sel">.navbar</span> {
-  <span class="prop">display</span>: <span class="val">flex</span>;
-  <span class="prop">justify-content</span>: <span class="val">space-between</span>;
-  <span class="prop">align-items</span>: <span class="val">center</span>;
-  <span class="prop">padding</span>: <span class="val">16px 40px</span>;
-  <span class="prop">background</span>: <span class="val">#333</span>;
-}
-
-<span class="sel">.nav-links</span> {
-  <span class="prop">display</span>: <span class="val">flex</span>;
-  <span class="prop">gap</span>: <span class="val">24px</span>;
+        <pre class="cod-bloc"><span class="sel">.hero</span> {
+  <span class="prop">background</span>: <span class="val">linear-gradient</span>(<span class="val">135deg, #667eea 0%, #764ba2 100%</span>);
+  <span class="prop">color</span>: <span class="val">white</span>;
+  <span class="prop">padding</span>: <span class="val">80px 40px</span>;
+  <span class="prop">text-align</span>: <span class="val">center</span>;
 }</pre>
       </div>
 
-      <!-- USE CASE 2: Card Grid -->
+      <!-- USE CASE 2: Color Cards -->
       <div class="use-case" id="use-case-cards">
-        <h3>🎴 Card Grid — Rânduri de card-uri cu wrapping</h3>
-        <p class="use-case-desc">Utilizări: Portofolii, galerии, produse, blog-uri</p>
+        <h3>🎴 Color Cards — Carduri cu culori diferite</h3>
+        <p class="use-case-desc">Utilizări: Categorii, servicii, feature highlights</p>
         
         <div class="demo-showcase">
-          <div class="cards-demo">
-            <div class="card-item">
-              <div class="card-img"></div>
-              <h4>Titlu Card 1</h4>
-              <p>Descriere scurtă</p>
-            </div>
-            <div class="card-item">
-              <div class="card-img"></div>
-              <h4>Titlu Card 2</h4>
-              <p>Descriere scurtă</p>
-            </div>
-            <div class="card-item">
-              <div class="card-img"></div>
-              <h4>Titlu Card 3</h4>
-              <p>Descriere scurtă</p>
-            </div>
-            <div class="card-item">
-              <div class="card-img"></div>
-              <h4>Titlu Card 4</h4>
-              <p>Descriere scurtă</p>
-            </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; width: 100%;">
+            <div class="color-card" style="background-color: #FF6B6B;"></div>
+            <div class="color-card" style="background-color: #4ECDC4;"></div>
+            <div class="color-card" style="background-color: #FFE66D;"></div>
+            <div class="color-card" style="background-color: #95E1D3;"></div>
           </div>
         </div>
 
-        <pre class="cod-bloc"><span class="sel">.cards-container</span> {
-  <span class="prop">display</span>: <span class="val">flex</span>;
-  <span class="prop">flex-wrap</span>: <span class="val">wrap</span>;
-  <span class="prop">gap</span>: <span class="val">20px</span>;
-}
-
-<span class="sel">.card</span> {
-  <span class="prop">flex</span>: <span class="val">1 1 calc(25% - 20px)</span>;
-  <span class="prop">min-width</span>: <span class="val">200px</span>;
-  <span class="prop">background</span>: <span class="val">white</span>;
+        <pre class="cod-bloc"><span class="sel">.card</span> {
+  <span class="prop">background-color</span>: <span class="val">#FF6B6B</span>;
+  <span class="prop">padding</span>: <span class="val">20px</span>;
   <span class="prop">border-radius</span>: <span class="val">8px</span>;
+  <span class="prop">color</span>: <span class="val">white</span>;
+  <span class="prop">transition</span>: <span class="val">transform 0.3s</span>;
+}
+
+<span class="sel">.card:hover</span> {
+  <span class="prop">transform</span>: <span class="val">scale(1.05)</span>;
 }</pre>
       </div>
 
-      <!-- USE CASE 3: Form Layout -->
-      <div class="use-case" id="use-case-form">
-        <h3>📋 Form Layout — Input + Button pe aceeași linie</h3>
-        <p class="use-case-desc">Utilizări: Search bars, newsletter signup, input groups</p>
+      <!-- USE CASE 3: Gradient Button -->
+      <div class="use-case" id="use-case-button">
+        <h3>🔘 Gradient Button — Buton modern cu gradient</h3>
+        <p class="use-case-desc">Utilizări: Call-to-action buttons, interactive elements</p>
         
         <div class="demo-showcase">
-          <div class="form-demo-flex">
-            <input type="email" placeholder="Introdu email..." class="form-input">
-            <button class="form-btn">Abonează-te</button>
-          </div>
+          <button class="demo-gradient-btn">Fă clic pe mine</button>
         </div>
 
-        <pre class="cod-bloc"><span class="sel">.form-group</span> {
-  <span class="prop">display</span>: <span class="val">flex</span>;
-  <span class="prop">gap</span>: <span class="val">8px</span>;
+        <pre class="cod-bloc"><span class="sel">.btn-gradient</span> {
+  <span class="prop">background</span>: <span class="val">linear-gradient</span>(<span class="val">45deg, #FF6B6B, #FFD93D</span>);
+  <span class="prop">color</span>: <span class="val">white</span>;
+  <span class="prop">border</span>: <span class="val">none</span>;
+  <span class="prop">padding</span>: <span class="val">12px 32px</span>;
+  <span class="prop">border-radius</span>: <span class="val">8px</span>;
+  <span class="prop">cursor</span>: <span class="val">pointer</span>;
+  <span class="prop">font-weight</span>: <span class="val">bold</span>;
+  <span class="prop">transition</span>: <span class="val">transform 0.2s</span>;
 }
 
-<span class="sel">.form-input</span> {
-  <span class="prop">flex</span>: <span class="val">1</span>; <span class="cm">/* ia tot spațiul disponibil */</span>
-  <span class="prop">padding</span>: <span class="val">10px</span>;
-  <span class="prop">border</span>: <span class="val">1px solid #ddd</span>;
-  <span class="prop">border-radius</span>: <span class="val">4px</span>;
-}
-
-<span class="sel">.form-btn</span> {
-  <span class="prop">flex</span>: <span class="val">0 0 auto</span>; <span class="cm">/* nu crește */</span>
-  <span class="prop">padding</span>: <span class="val">10px 24px</span>;
+<span class="sel">.btn-gradient:hover</span> {
+  <span class="prop">transform</span>: <span class="val">translateY(-2px)</span>;
 }</pre>
       </div>
 
-      <!-- USE CASE 4: Button Group -->
-      <div class="use-case" id="use-case-buttons">
-        <h3>🔘 Button Group — Butoane în linie cu spațiu egal</h3>
-        <p class="use-case-desc">Utilizări: Controale, pagination, action buttons</p>
+      <!-- USE CASE 4: Image Overlay -->
+      <div class="use-case" id="use-case-overlay">
+        <h3>🌄 Image Overlay — Gradient peste imagine</h3>
+        <p class="use-case-desc">Utilizări: Featured images, blog post covers, readability overlay</p>
         
-        <div class="demo-showcase">
-          <div class="button-group">
-            <button class="group-btn">← Previous</button>
-            <button class="group-btn">1</button>
-            <button class="group-btn">2</button>
-            <button class="group-btn">3</button>
-            <button class="group-btn">Next →</button>
-          </div>
-        </div>
-
-        <pre class="cod-bloc"><span class="sel">.button-group</span> {
-  <span class="prop">display</span>: <span class="val">flex</span>;
-  <span class="prop">gap</span>: <span class="val">8px</span>;
-  <span class="prop">justify-content</span>: <span class="val">center</span>;
-}
-
-<span class="sel">.group-btn</span> {
-  <span class="prop">flex</span>: <span class="val">0 0 auto</span>;
-  <span class="prop">padding</span>: <span class="val">10px 16px</span>;
-  <span class="prop">border</span>: <span class="val">1px solid #0096C7</span>;
-}</pre>
-      </div>
-
-      <!-- USE CASE 5: Sidebar Layout -->
-      <div class="use-case" id="use-case-sidebar">
-        <h3>📌 Sidebar Layout — Bara laterală + conținut</h3>
-        <p class="use-case-desc">Utilizări: Admin panels, dashboards, blogs cu sidebar</p>
-        
-        <div class="demo-showcase">
-          <div class="sidebar-demo">
-            <div class="sidebar">
-              <div class="sidebar-item">Menu 1</div>
-              <div class="sidebar-item">Menu 2</div>
-              <div class="sidebar-item">Menu 3</div>
-            </div>
-            <div class="content-area">
-              <div class="content-block">Main Content</div>
+        <div class="demo-showcase demo-overlay">
+          <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%); display: flex; align-items: flex-end; padding: 20px; color: white;">
+            <div>
+              <h4 style="margin: 0 0 4px 0;">Titlu Articol</h4>
+              <p style="margin: 0; font-size: 13px;">Descriere scurtă care se citește bine</p>
             </div>
           </div>
         </div>
 
-        <pre class="cod-bloc"><span class="sel">.container</span> {
-  <span class="prop">display</span>: <span class="val">flex</span>;
-  <span class="prop">gap</span>: <span class="val">20px</span>;
+        <pre class="cod-bloc"><span class="sel">.image-wrapper</span> {
+  <span class="prop">position</span>: <span class="val">relative</span>;
+  <span class="prop">background-image</span>: <span class="val">url('image.jpg')</span>;
+  <span class="prop">background-size</span>: <span class="val">cover</span>;
 }
 
-<span class="sel">.sidebar</span> {
-  <span class="prop">flex</span>: <span class="val">0 0 250px</span>; <span class="cm">/* lățime fixă */</span>
-  <span class="prop">display</span>: <span class="val">flex</span>;
-  <span class="prop">flex-direction</span>: <span class="val">column</span>;
-}
-
-<span class="sel">.content</span> {
-  <span class="prop">flex</span>: <span class="val">1</span>; <span class="cm">/* ia spațiul rămas */</span>
+<span class="sel">.image-wrapper::after</span> {
+  <span class="prop">content</span>: <span class="val">''</span>;
+  <span class="prop">position</span>: <span class="val">absolute</span>;
+  <span class="prop">top</span>: <span class="val">0</span>; <span class="prop">left</span>: <span class="val">0</span>;
+  <span class="prop">right</span>: <span class="val">0</span>; <span class="prop">bottom</span>: <span class="val">0</span>;
+  <span class="prop">background</span>: <span class="val">linear-gradient</span>(
+    <span class="val">180deg, rgba(0,0,0,0), rgba(0,0,0,0.7)</span>
+  );
 }</pre>
       </div>
 
-      <!-- USE CASE 6: Center Content -->
-      <div class="use-case" id="use-case-center">
-        <h3>⭐ Center Content — Centrarea perfectă (orizontal + vertical)</h3>
-        <p class="use-case-desc">Utilizări: Hero sections, splash screens, empty states</p>
+      <!-- USE CASE 5: Text on Gradient -->
+      <div class="use-case" id="use-case-text">
+        <h3>✍️ Text pe Gradient — Contrast bun</h3>
+        <p class="use-case-desc">Utilizări: Titluri eye-catching, promotional banners</p>
         
-        <div class="demo-showcase center-demo-box">
-          <div class="center-flex">
-            <div class="center-content">
-              <h4>Perfect Centered</h4>
-              <p>Atât orizontal cât și vertical</p>
-            </div>
+        <div class="demo-showcase demo-text-gradient">
+          <h2 style="margin: 0; text-align: center; font-size: 28px; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Text Colorat pe Fundal Gradient</h2>
+        </div>
+
+        <pre class="cod-bloc"><span class="sel">.text-on-gradient</span> {
+  <span class="prop">background</span>: <span class="val">linear-gradient</span>(
+    <span class="val">-45deg, #FF6B6B, #FFD93D, #6BCF7F</span>
+  );
+  <span class="prop">color</span>: <span class="val">white</span>;
+  <span class="prop">padding</span>: <span class="val">40px</span>;
+  <span class="prop">text-shadow</span>: <span class="val">2px 2px 4px rgba(0,0,0,0.3)</span>;
+  <span class="prop">text-align</span>: <span class="val">center</span>;
+}</pre>
+      </div>
+
+      <!-- USE CASE 6: Gradient Border -->
+      <div class="use-case" id="use-case-border">
+        <h3>🎯 Gradient Border — Contur colorat</h3>
+        <p class="use-case-desc">Utilizări: Special cards, highlighted sections, premium look</p>
+        
+        <div class="demo-showcase">
+          <div class="gradient-border-demo">
+            <h4 style="margin: 0 0 8px 0;">Premium Card</h4>
+            <p style="margin: 0; font-size: 13px; color: #64748b;">Acesta este un card special cu contur gradient</p>
           </div>
         </div>
 
-        <pre class="cod-bloc"><span class="sel">.container</span> {
-  <span class="prop">display</span>: <span class="val">flex</span>;
-  <span class="prop">justify-content</span>: <span class="val">center</span>; <span class="cm">/* orizontal */</span>
-  <span class="prop">align-items</span>: <span class="val">center</span>;     <span class="cm">/* vertical */</span>
-  <span class="prop">height</span>: <span class="val">400px</span>;
-}
-
-<span class="cm">/* aceasta este soluția flexbox ideală! */</span></pre>
+        <pre class="cod-bloc"><span class="sel">.gradient-border</span> {
+  <span class="prop">background</span>: <span class="val">linear-gradient</span>(
+    <span class="val">white, white</span>
+  ) padding-box,
+    <span class="val">linear-gradient</span>(
+      <span class="val">45deg, #667eea, #764ba2</span>
+    ) border-box;
+  <span class="prop">border</span>: <span class="val">3px solid transparent</span>;
+  <span class="prop">border-radius</span>: <span class="val">8px</span>;
+  <span class="prop">padding</span>: <span class="val">16px</span>;
+}</pre>
       </div>
 
     </div>
@@ -515,8 +472,8 @@
        FOOTER
   ══════════════════════════════════ -->
   <footer>
-    <p><strong>Flexbox Masterclass</strong> — Curs video complet și interactiv</p>
-    <p>De la fundații la cazuri reale · Toate proprietățile · Exemple live</p>
+    <p><strong>Colors & Backgrounds Masterclass</strong> — Curs video complet și interactiv</p>
+    <p>De la formate la gradiente · Toate proprietățile · Exemple live</p>
     <p style="margin-top:12px; font-size:12px;">Realizat cu HTML + CSS + JavaScript · Gata pentru curs video</p>
   </footer>
 
