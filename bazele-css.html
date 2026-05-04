@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bazele CSS — Site demonstrativ</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+  <header>
+    <div class="logo">Site<span>.css</span></div>
+    <nav>
+      <a href="#selectori">Selectori</a>
+      <a href="#box-model">Box Model</a>
+      <a href="#flexbox">Flexbox</a>
+      <a href="#grid">Grid</a>
+      <a href="#tipografie">Tipografie</a>
+      <a href="#formulare">Formulare</a>
+    </nav>
+  </header>
+
+  <!-- ══════════════════════════════════
+       HERO (text-align + padding + culori)
+  ══════════════════════════════════ -->
+  <div class="hero">
+    <h1>Bazele <span>CSS</span></h1>
+    <p>Un site complet care demonstrează toate conceptele CSS — de la selectori la animații.</p>
+    <a href="#selectori" class="btn">Începe lecția</a>
+    <a href="https://developer.mozilla.org/ro/docs/Web/CSS" class="btn btn-contur">Documentație MDN</a>
+  </div>
+
+  <!-- ══════════════════════════════════
+       SECȚIUNEA 1 — SELECTORI
+  ══════════════════════════════════ -->
+  <section id="selectori">
+    <div class="container">
+      <h2 class="titlu-sectiune">1. Selectori CSS</h2>
+      <p class="subtitlu-sectiune">Cum vizăm elementele pe care vrem să le stilizăm</p>
+
+      <div class="grid-3">
+        <div class="card card--albastru">
+          <div class="card-icon">⬛</div>
+          <h3>Selector de element</h3>
+          <p>Vizează toate elementele de acel tip.</p>
+          <pre class="cod-bloc"><span class="sel">p</span> {
+  <span class="prop">color</span>: <span class="val">red</span>;
+}</pre>
+        </div>
+
+        <div class="card card--verde">
+          <div class="card-icon">●</div>
+          <h3>Selector de clasă</h3>
+          <p>Vizează toate elementele cu acea clasă HTML.</p>
+          <pre class="cod-bloc"><span class="sel">.titlu</span> {
+  <span class="prop">font-size</span>: <span class="val">24px</span>;
+}</pre>
+        </div>
+
+        <div class="card card--rosu">
+          <div class="card-icon">#</div>
+          <h3>Selector de ID</h3>
+          <p>Vizează un singur element unic pe pagină.</p>
+          <pre class="cod-bloc"><span class="sel">#meniu</span> {
+  <span class="prop">background</span>: <span class="val">navy</span>;
+}</pre>
+        </div>
+
+        <div class="card card--violet">
+          <div class="card-icon">*</div>
+          <h3>Selector universal</h3>
+          <p>Vizează absolut toate elementele din pagină.</p>
+          <pre class="cod-bloc"><span class="sel">*</span> {
+  <span class="prop">box-sizing</span>: <span class="val">border-box</span>;
+}</pre>
+        </div>
+
+        <div class="card card--galben">
+          <div class="card-icon">↓</div>
+          <h3>Selector descendent</h3>
+          <p>Vizează elementele aflate în interiorul altui element.</p>
+          <pre class="cod-bloc"><span class="sel">nav a</span> {
+  <span class="prop">color</span>: <span class="val">white</span>;
+}</pre>
+        </div>
+
+        <div class="card card--roz">
+          <div class="card-icon">:</div>
+          <h3>Pseudo-clasă</h3>
+          <p>Vizează un element în funcție de starea sa.</p>
+          <pre class="cod-bloc"><span class="sel">a:hover</span> {
+  <span class="prop">color</span>: <span class="val">blue</span>;
+}
+<span class="sel">tr:nth-child(even)</span> {
+  <span class="prop">background</span>: <span class="val">#f0f0f0</span>;
+}</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       SECȚIUNEA 2 — BOX MODEL
+  ══════════════════════════════════ -->
+  <section id="box-model" class="sectiune-alba">
+    <div class="container">
+      <h2 class="titlu-sectiune">2. Box Model</h2>
+      <p class="subtitlu-sectiune">Fiecare element HTML este o cutie cu 4 straturi</p>
+
+      <div class="box-model-demo">
+        <div class="box-vizual">
+          <div class="box-label">margin</div>
+          <div class="box-border">
+            <div class="box-label">border</div>
+            <div class="box-padding">
+              <div class="box-label">padding</div>
+              <div class="box-content">content<br><small>text, imagini...</small></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="box-explicatii">
+          <div class="box-row margin">
+            <div class="box-row-color" style="background:#fed7aa;"></div>
+            <span class="box-row-titlu"><code>margin</code></span>
+            <span class="box-row-desc">Spațiu în exteriorul elementului. Separă elementele între ele.</span>
+          </div>
+          <div class="box-row border">
+            <div class="box-row-color" style="background:#fca5a5;"></div>
+            <span class="box-row-titlu"><code>border</code></span>
+            <span class="box-row-desc">Conturul vizibil al elementului. Poate fi solid, dashed, dotted.</span>
+          </div>
+          <div class="box-row padding">
+            <div class="box-row-color" style="background:#86efac;"></div>
+            <span class="box-row-titlu"><code>padding</code></span>
+            <span class="box-row-desc">Spațiu interior, între border și conținut.</span>
+          </div>
+          <div class="box-row content">
+            <div class="box-row-color" style="background:#93c5fd;"></div>
+            <span class="box-row-titlu"><code>content</code></span>
+            <span class="box-row-desc">Zona efectivă cu text, imagini sau alte elemente.</span>
+          </div>
+
+          <pre class="cod-bloc" style="margin-top:20px;"><span class="sel">.cutie</span> {
+  <span class="prop">margin</span>:  <span class="val">20px</span>;        <span class="cm">/* exterior */</span>
+  <span class="prop">border</span>:  <span class="val">3px solid red</span>; <span class="cm">/* contur */</span>
+  <span class="prop">padding</span>: <span class="val">15px</span>;        <span class="cm">/* interior */</span>
+  <span class="prop">width</span>:   <span class="val">200px</span>;        <span class="cm">/* lățime */</span>
+}</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       SECȚIUNEA 3 — FLEXBOX
+  ══════════════════════════════════ -->
+  <section id="flexbox">
+    <div class="container">
+      <h2 class="titlu-sectiune">3. Flexbox</h2>
+      <p class="subtitlu-sectiune">Layout pe o singură axă — rând sau coloană</p>
+
+      <div class="grid-3">
+        <div>
+          <p class="flex-label">display: flex; flex-direction: row;</p>
+          <div class="flex-demo row">
+            <div class="flex-item">A</div>
+            <div class="flex-item">B</div>
+            <div class="flex-item">C</div>
+          </div>
+        </div>
+        <div>
+          <p class="flex-label">justify-content: center; align-items: center;</p>
+          <div class="flex-demo center">
+            <div class="flex-item">Centrat</div>
+          </div>
+        </div>
+        <div>
+          <p class="flex-label">justify-content: space-between;</p>
+          <div class="flex-demo between">
+            <div class="flex-item">Stânga</div>
+            <div class="flex-item">Dreapta</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       SECȚIUNEA 4 — GRID
+  ══════════════════════════════════ -->
+  <section id="grid" class="sectiune-alba">
+    <div class="container">
+      <h2 class="titlu-sectiune">4. CSS Grid</h2>
+      <p class="subtitlu-sectiune">Layout pe două axe — rânduri și coloane</p>
+
+      <div class="grid-3">
+        <div>
+          <p class="flex-label">grid-template-columns: 1fr 1fr;</p>
+          <div class="grid-demo grid-demo-2">
+            <div class="grid-item">1</div>
+            <div class="grid-item">2</div>
+            <div class="grid-item">3</div>
+            <div class="grid-item">4</div>
+          </div>
+        </div>
+        <div>
+          <p class="flex-label">grid-template-columns: 1fr 1fr 1fr;</p>
+          <div class="grid-demo grid-demo-3">
+            <div class="grid-item">1</div>
+            <div class="grid-item">2</div>
+            <div class="grid-item">3</div>
+            <div class="grid-item">4</div>
+            <div class="grid-item">5</div>
+            <div class="grid-item">6</div>
+          </div>
+        </div>
+        <div>
+          <p class="flex-label">grid-column: span 2; (item care se întinde)</p>
+          <div class="grid-demo grid-demo-2">
+            <div class="grid-item span2">Span 2 coloane</div>
+            <div class="grid-item">3</div>
+            <div class="grid-item">4</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       SECȚIUNEA 5 — TIPOGRAFIE
+  ══════════════════════════════════ -->
+  <section id="tipografie">
+    <div class="container">
+      <h2 class="titlu-sectiune">5. Tipografie</h2>
+      <p class="subtitlu-sectiune">Proprietăți pentru text și fonturi</p>
+
+      <div class="typo-demo">
+        <div class="typo-row">
+          <span class="typo-cod">font-size: 32px; font-weight: bold;</span>
+          <span style="font-size:32px; font-weight:bold; color:var(--culoare-inchisa);">Titlu mare</span>
+        </div>
+        <div class="typo-row">
+          <span class="typo-cod">font-style: italic; color: #64748b;</span>
+          <span style="font-style:italic; color:#64748b; font-size:18px;">Text italic și colorat</span>
+        </div>
+        <div class="typo-row">
+          <span class="typo-cod">text-align: center; letter-spacing: 6px;</span>
+          <span style="text-align:center; letter-spacing:6px; display:block; font-size:15px; color:#0096C7; font-weight:bold;">SPAȚIAT</span>
+        </div>
+        <div class="typo-row">
+          <span class="typo-cod">text-transform: uppercase;</span>
+          <span style="text-transform:uppercase; font-size:15px;">text transformat</span>
+        </div>
+        <div class="typo-row">
+          <span class="typo-cod">text-decoration: line-through;</span>
+          <span style="text-decoration:line-through; font-size:15px;">Text tăiat</span>
+        </div>
+        <div class="typo-row">
+          <span class="typo-cod">font-family: Georgia, serif;</span>
+          <span style="font-family:Georgia,serif; font-size:18px;">Font serif elegant</span>
+        </div>
+        <div class="typo-row">
+          <span class="typo-cod">line-height: 2; color: #0096C7;</span>
+          <span style="line-height:2; color:#0096C7; font-size:15px;">Rând cu înălțime dublă și culoare personalizată</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       SECȚIUNEA 6 — CULORI
+  ══════════════════════════════════ -->
+  <section class="sectiune-alba">
+    <div class="container">
+      <h2 class="titlu-sectiune">6. Culori în CSS</h2>
+      <p class="subtitlu-sectiune">Moduri de a scrie culori: nume, hex, rgb, hsl</p>
+
+      <div class="culori-grid mb-40">
+        <div class="culoare-card">
+          <div class="culoare-mostra" style="background:red;"></div>
+          <div class="culoare-info"><strong>red</strong><p>Nume de culoare</p></div>
+        </div>
+        <div class="culoare-card">
+          <div class="culoare-mostra" style="background:#0096C7;"></div>
+          <div class="culoare-info"><strong>#0096C7</strong><p>Hex (roșu, verde, albastru)</p></div>
+        </div>
+        <div class="culoare-card">
+          <div class="culoare-mostra" style="background:rgb(255,107,107);"></div>
+          <div class="culoare-info"><strong>rgb(255,107,107)</strong><p>RGB — 0 la 255</p></div>
+        </div>
+        <div class="culoare-card">
+          <div class="culoare-mostra" style="background:rgba(0,150,199,0.3);"></div>
+          <div class="culoare-info"><strong>rgba(0,150,199,0.3)</strong><p>RGB cu transparență</p></div>
+        </div>
+        <div class="culoare-card">
+          <div class="culoare-mostra" style="background:hsl(195,100%,39%);"></div>
+          <div class="culoare-info"><strong>hsl(195,100%,39%)</strong><p>Nuanță, saturație, luminozitate</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       SECȚIUNEA 7 — SPECIFICITATE
+  ══════════════════════════════════ -->
+  <section>
+    <div class="container">
+      <h2 class="titlu-sectiune">7. Specificitate (Cascadă)</h2>
+      <p class="subtitlu-sectiune">Care regulă CSS câștigă când există conflict?</p>
+
+      <div class="mb-40">
+        <div class="spec-bara">
+          <span class="spec-eticheta"><code>!important</code></span>
+          <div class="spec-progres" style="background:var(--culoare-accent);width:100%;">Câștigă mereu ⚠️</div>
+          <span class="spec-puncte">∞ pt</span>
+        </div>
+        <div class="spec-bara">
+          <span class="spec-eticheta"><code>style="..."</code> (inline)</span>
+          <div class="spec-progres" style="background:#dc2626;width:75%;">Cel mai specific</div>
+          <span class="spec-puncte">1000 pt</span>
+        </div>
+        <div class="spec-bara">
+          <span class="spec-eticheta"><code>#id</code></span>
+          <div class="spec-progres" style="background:#1d4ed8;width:55%;">ID unic</div>
+          <span class="spec-puncte">100 pt</span>
+        </div>
+        <div class="spec-bara">
+          <span class="spec-eticheta"><code>.clasa</code>, <code>:hover</code></span>
+          <div class="spec-progres" style="background:#0096C7;width:35%;">Clase și pseudo</div>
+          <span class="spec-puncte">10 pt</span>
+        </div>
+        <div class="spec-bara">
+          <span class="spec-eticheta"><code>p</code>, <code>h1</code> (element)</span>
+          <div class="spec-progres" style="background:#475569;width:15%;">Elementar</div>
+          <span class="spec-puncte">1 pt</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       SECȚIUNEA 8 — PSEUDO-ELEMENTE
+  ══════════════════════════════════ -->
+  <section class="sectiune-alba">
+    <div class="container">
+      <h2 class="titlu-sectiune">8. Pseudo-elemente</h2>
+      <p class="subtitlu-sectiune">::before și ::after — conținut generat prin CSS</p>
+
+      <div class="grid-3">
+        <div class="card pseudo-demo">
+          <h3 style="margin-bottom:16px;">::before — săgeți</h3>
+          <p>Primul element din listă</p>
+          <p>Al doilea element</p>
+          <p>Al treilea element</p>
+          <pre class="cod-bloc">p<span class="sel">::before</span> {
+  <span class="prop">content</span>: <span class="val">"→"</span>;
+  <span class="prop">color</span>: <span class="val">blue</span>;
+}</pre>
+        </div>
+
+        <div class="card pseudo-demo">
+          <h3 style="margin-bottom:16px;">::before + ::after — ghilimele</h3>
+          <p class="citat">CSS este limbajul care face internetul frumos.</p>
+          <pre class="cod-bloc">p<span class="sel">::before</span> {
+  <span class="prop">content</span>: <span class="val">'"'</span>;
+}
+p<span class="sel">::after</span> {
+  <span class="prop">content</span>: <span class="val">'"'</span>;
+}</pre>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-bottom:16px;">::first-letter</h3>
+          <p style="font-size:15px;line-height:1.6;">
+            <span style="float:left;font-size:48px;line-height:0.85;font-family:Georgia;color:var(--culoare-principala);margin-right:6px;font-weight:bold;">C</span>
+            SS-ul este un limbaj de stilizare folosit pentru a descrie prezentarea unui document scris în HTML.
+          </p>
+          <pre class="cod-bloc" style="margin-top:16px;">p<span class="sel">::first-letter</span> {
+  <span class="prop">font-size</span>: <span class="val">48px</span>;
+  <span class="prop">float</span>: <span class="val">left</span>;
+  <span class="prop">color</span>: <span class="val">#0096C7</span>;
+}</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       SECȚIUNEA 9 — ANIMAȚII
+  ══════════════════════════════════ -->
+  <section>
+    <div class="container">
+      <h2 class="titlu-sectiune">9. Tranziții și Animații</h2>
+      <p class="subtitlu-sectiune">Mișcare și efecte vizuale cu CSS pur</p>
+
+      <div class="mb-40">
+        <p class="text-mic" style="margin-bottom:20px;">Animații active pe pagină:</p>
+        <div class="animat-puls">Pulsație infinită</div>
+        <div class="animat-alunecare">Alunecare la încărcare</div>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>@keyframes</h3>
+          <pre class="cod-bloc"><span class="sel">@keyframes</span> pulsatie {
+  <span class="prop">0%</span>   { <span class="prop">transform</span>: <span class="val">scale(1)</span>; }
+  <span class="prop">50%</span>  { <span class="prop">transform</span>: <span class="val">scale(1.1)</span>; }
+  <span class="prop">100%</span> { <span class="prop">transform</span>: <span class="val">scale(1)</span>; }
+}</pre>
+        </div>
+        <div class="card">
+          <h3>animation</h3>
+          <pre class="cod-bloc"><span class="sel">.element</span> {
+  <span class="prop">animation</span>:
+    <span class="val">pulsatie</span>
+    <span class="val">2s</span>
+    <span class="val">ease-in-out</span>
+    <span class="val">infinite</span>;
+}</pre>
+        </div>
+        <div class="card">
+          <h3>transition (hover)</h3>
+          <pre class="cod-bloc"><span class="sel">.btn</span> {
+  <span class="prop">transition</span>: <span class="val">all 0.2s ease</span>;
+}
+<span class="sel">.btn:hover</span> {
+  <span class="prop">transform</span>:
+    <span class="val">translateY(-2px)</span>;
+}</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       SECȚIUNEA 10 — FORMULARE
+  ══════════════════════════════════ -->
+  <section id="formulare" class="sectiune-alba">
+    <div class="container">
+      <h2 class="titlu-sectiune">10. Stilizarea formularelor</h2>
+      <p class="subtitlu-sectiune">input, textarea, select, label — cu focus și hover</p>
+
+      <div class="form-demo">
+        <div class="form-grup">
+          <label for="nume">Nume complet</label>
+          <input type="text" id="nume" placeholder="Ex: Ion Popescu">
+        </div>
+        <div class="form-grup">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="ion@exemplu.ro">
+        </div>
+        <div class="form-grup">
+          <label for="subiect">Subiect</label>
+          <select id="subiect">
+            <option>Selectează un subiect</option>
+            <option>HTML</option>
+            <option>CSS</option>
+            <option>JavaScript</option>
+          </select>
+        </div>
+        <div class="form-grup">
+          <label for="mesaj">Mesaj</label>
+          <textarea id="mesaj" placeholder="Scrie mesajul tău..."></textarea>
+        </div>
+        <a href="#" class="btn">Trimite mesajul</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       SECȚIUNEA 11 — TABEL
+  ══════════════════════════════════ -->
+  <section>
+    <div class="container">
+      <h2 class="titlu-sectiune">11. Stilizarea tabelelor</h2>
+      <p class="subtitlu-sectiune">border-collapse, nth-child, hover pe rânduri</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Proprietate CSS</th>
+            <th>Ce face</th>
+            <th>Exemplu de valoare</th>
+            <th>Categorie</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>color</code></td>
+            <td>Culoarea textului</td>
+            <td><code>#FF0000</code></td>
+            <td><span class="badge badge--albastru" style="background:#dbeafe;color:#1d4ed8;">text</span></td>
+          </tr>
+          <tr>
+            <td><code>font-size</code></td>
+            <td>Mărimea fontului</td>
+            <td><code>16px</code></td>
+            <td><span class="badge badge--albastru" style="background:#dbeafe;color:#1d4ed8;">text</span></td>
+          </tr>
+          <tr>
+            <td><code>margin</code></td>
+            <td>Spațiu exterior</td>
+            <td><code>10px 20px</code></td>
+            <td><span class="badge badge--verde">spațiere</span></td>
+          </tr>
+          <tr>
+            <td><code>padding</code></td>
+            <td>Spațiu interior</td>
+            <td><code>8px 16px</code></td>
+            <td><span class="badge badge--verde">spațiere</span></td>
+          </tr>
+          <tr>
+            <td><code>display</code></td>
+            <td>Tipul de afișare</td>
+            <td><code>flex</code>, <code>grid</code></td>
+            <td><span class="badge badge--galben">layout</span></td>
+          </tr>
+          <tr>
+            <td><code>background-color</code></td>
+            <td>Culoarea fundalului</td>
+            <td><code>rgba(0,0,0,0.5)</code></td>
+            <td><span class="badge badge--rosu">fundal</span></td>
+          </tr>
+          <tr>
+            <td><code>border-radius</code></td>
+            <td>Colțuri rotunjite</td>
+            <td><code>8px</code></td>
+            <td><span class="badge badge--verde">spațiere</span></td>
+          </tr>
+          <tr>
+            <td><code>animation</code></td>
+            <td>Animație CSS</td>
+            <td><code>puls 2s infinite</code></td>
+            <td><span class="badge badge--galben">animație</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       SECȚIUNEA 12 — VARIABILE CSS
+  ══════════════════════════════════ -->
+  <section class="sectiune-alba">
+    <div class="container">
+      <h2 class="titlu-sectiune">12. Variabile CSS</h2>
+      <p class="subtitlu-sectiune">:root + var() — definim valori reutilizabile</p>
+
+      <div class="grid-3">
+        <div class="card" style="grid-column: span 1;">
+          <h3>Definire în :root</h3>
+          <pre class="cod-bloc"><span class="sel">:root</span> {
+  <span class="prop">--culoare</span>: <span class="val">#0096C7</span>;
+  <span class="prop">--raza</span>:    <span class="val">10px</span>;
+  <span class="prop">--font</span>:    <span class="val">sans-serif</span>;
+}</pre>
+        </div>
+        <div class="card">
+          <h3>Utilizare cu var()</h3>
+          <pre class="cod-bloc"><span class="sel">.buton</span> {
+  <span class="prop">background</span>:
+    <span class="val">var(--culoare)</span>;
+  <span class="prop">border-radius</span>:
+    <span class="val">var(--raza)</span>;
+  <span class="prop">font-family</span>:
+    <span class="val">var(--font)</span>;
+}</pre>
+        </div>
+        <div class="card">
+          <h3>Avantaje</h3>
+          <p style="margin-bottom:10px;">Schimbi o singură valoare și se actualizează <strong>tot site-ul</strong>.</p>
+          <p>Util pentru teme dark/light, culori de brand, spațieri consistente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       FOOTER
+  ══════════════════════════════════ -->
+  <footer>
+    <p><strong>Bazele CSS</strong> — Site demonstrativ pentru lecția 1</p>
+    <p>Selectori · Box Model · Flexbox · Grid · Tipografie · Animații · Formulare</p>
+    <p style="margin-top:12px; font-size:12px;">Scris cu HTML pur + CSS inline și intern · Fără JavaScript</p>
+  </footer>
+
+</body>
+</html>
