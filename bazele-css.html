@@ -3,509 +3,635 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flexbox — Curs Video Complet</title>
+  <title>Responsive Design — Curs Video Complet</title>
 
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
   <header>
-    <div class="logo">Colors<span>.css</span></div>
+    <div class="logo">Responsive<span>.css</span></div>
     <nav>
-      <a href="#formats">Formate</a>
-      <a href="#backgrounds">Backgrounds</a>
-      <a href="#gradients">Gradiente</a>
-      <a href="#interactive">Cazuri de Utilizare</a>
-      <a href="https://developer.mozilla.org/ro/docs/Web/CSS/color" class="btn btn-small" target="_blank">Documentație MDN</a>
+      <a href="#fundamentals">Fundații</a>
+      <a href="#media-queries">Media Queries</a>
+      <a href="#layouts">Layout-uri</a>
+      <a href="#images">Imagini</a>
+      <a href="https://developer.mozilla.org/ro/docs/Web/CSS/Media_Queries" class="btn btn-small" target="_blank">Documentație MDN</a>
     </nav>
   </header>
 
   <!-- ══════════════════════════════════
-       HERO — Colors & Backgrounds
+       HERO — Responsive Design focused
   ══════════════════════════════════ -->
   <div class="hero">
-    <h1>Culori și <span>Backgrounds</span></h1>
-    <p>Ghid complet: formate de culori, background-uri, gradiente și aplicații practice. Totul ce trebuie să știi despre culori în CSS.</p>
-    <a href="#formats" class="btn">Începe lecția</a>
+    <h1>Design <span>Responsive</span></h1>
+    <p>Sites care se adaptează perfect pe orice dispozitiv — de la mobil la desktop. Tot ce trebuie să știi despre designul adaptiv.</p>
+    <a href="#fundamentals" class="btn">Apasă start lecția</a>
   </div>
 
 
   <!-- ══════════════════════════════════
-       SECȚIUNEA 1 — COLOR FORMATS
+       SECȚIUNEA 1 — RESPONSIVE FUNDAMENTALS
   ══════════════════════════════════ -->
-  <section id="formats">
+  <section id="fundamentals">
     <div class="container">
-      <h2 class="titlu-sectiune">1. Formate de Culori în CSS</h2>
-      <p class="subtitlu-sectiune">Moduri diferite de a specifica culori: nume, hex, rgb, hsl, hsla</p>
+      <h2 class="titlu-sectiune">1. Fundațiile Designului Responsive</h2>
+      <p class="subtitlu-sectiune">De ce este esențial designul adaptiv și cum funcționează</p>
 
       <div class="fundamental-intro">
         <div class="intro-text">
-          <h3>De ce sunt importante culori?</h3>
-          <p><strong>Culori sunt fundamentale</strong> pentru designul web. Ele transmit emoții, crează contrast, îmbunătățesc readibilitatea și construiesc identitatea brand-ului.</p>
-          <p><strong>Principii de bază:</strong> Contrast suficient, paletă consistentă, accesibilitate (WCAG), psihologia culorilor.</p>
-          <p><strong>CSS oferă 4 moduri principale</strong> să specifici culori: nume, hex, rgb/rgba, hsl/hsla.</p>
+          <h3>Ce este Designul Responsive?</h3>
+          <p><strong>Designul responsive</strong> înseamnă că site-ul tău se adaptează automat la dimensiunea ecranului dispozitivului. Un singur cod HTML/CSS care funcționează perfect pe mobil, tabletă și desktop.</p>
+          <p><strong>De ce este important:</strong> 60% din trafic vine de pe mobil, Google penalizează site-urile non-responsive, UX mai bun pe toate dispozitivele.</p>
+          <p><strong>Ingrediente principale:</strong> <code>viewport meta tag</code>, <code>media queries</code>, unități relative, layout-uri flexibile.</p>
         </div>
       </div>
 
-      <h3 style="margin-top: 40px; margin-bottom: 20px;">Comparație Formate de Culori</h3>
+      <h3 style="margin-top: 40px; margin-bottom: 20px;">Principii Cheie</h3>
       <div class="grid-2">
-        <div class="format-card">
-          <div class="format-demo" style="background: red;"></div>
-          <h4>1. Nume de Culoare</h4>
-          <p style="font-size: 13px;">Cele mai comune culori au nume predefinite.</p>
-          <pre class="cod-bloc"><span class="prop">color</span>: <span class="val">red</span>;
-<span class="prop">color</span>: <span class="val">blue</span>;
-<span class="prop">color</span>: <span class="val">tomato</span>;</pre>
-          <p style="font-size: 12px; color: #64748b; margin-top: 12px;">✓ Ușor de citit<br>✗ Doar ~150 culori disponibile</p>
+        <div class="card">
+          <div class="card-icon" style="background: #dbeafe; color: #1d4ed8; font-size: 28px;">📱</div>
+          <h4>Mobile-First Approach</h4>
+          <p style="font-size: 13px;">Începe designul de la mobil și adaugă funcționalități pentru ecrane mai mari.</p>
+          <p style="font-size: 13px; margin-top: 10px;"><code>@media (min-width: 768px)</code> pentru tabletă și desktop</p>
         </div>
 
-        <div class="format-card">
-          <div class="format-demo" style="background: #FF6347;"></div>
-          <h4>2. Hex (Hexazecimal)</h4>
-          <p style="font-size: 13px;">Format: #RRGGBB — 6 cifre hex reprezentând roșu, verde, albastru.</p>
-          <pre class="cod-bloc"><span class="prop">color</span>: <span class="val">#FF6347</span>;
-<span class="prop">color</span>: <span class="val">#F63</span>; <span class="cm">/* scurt */</span>
-<span class="prop">background</span>: <span class="val">#0096C7</span>;</pre>
-          <p style="font-size: 12px; color: #64748b; margin-top: 12px;">✓ 16 milioane culori<br>✓ Compact</p>
-        </div>
-
-        <div class="format-card">
-          <div class="format-demo" style="background: rgb(255, 99, 71);"></div>
-          <h4>3. RGB (Red, Green, Blue)</h4>
-          <p style="font-size: 13px;">Format: rgb(R, G, B) — valori 0-255 pentru fiecare culoare.</p>
-          <pre class="cod-bloc"><span class="prop">color</span>: <span class="val">rgb(255, 99, 71)</span>;
-<span class="prop">background</span>: <span class="val">rgb(0, 150, 199)</span>;
-<span class="prop">border</span>: <span class="val">rgb(100, 100, 100)</span>;</pre>
-          <p style="font-size: 12px; color: #64748b; margin-top: 12px;">✓ Ușor de manipulat<br>✓ Transparență cu rgba()</p>
-        </div>
-
-        <div class="format-card">
-          <div class="format-demo" style="background: rgba(255, 99, 71, 0.7);"></div>
-          <h4>4. RGBA (RGB + Alpha/Transparență)</h4>
-          <p style="font-size: 13px;">Format: rgba(R, G, B, A) — A este opacitate 0-1.</p>
-          <pre class="cod-bloc"><span class="prop">background</span>: <span class="val">rgba(255, 99, 71, 0.8)</span>;
-<span class="prop">box-shadow</span>: <span class="val">rgba(0, 0, 0, 0.2)</span>;
-<span class="prop">color</span>: <span class="val">rgba(50, 50, 50, 0.9)</span>;</pre>
-          <p style="font-size: 12px; color: #64748b; margin-top: 12px;">✓ Transparență control total<br>✓ Perfect pentru overlay-uri</p>
-        </div>
-
-        <div class="format-card">
-          <div class="format-demo" style="background: hsl(9, 100%, 64%);"></div>
-          <h4>5. HSL (Hue, Saturation, Lightness)</h4>
-          <p style="font-size: 13px;">Format: hsl(H, S%, L%) — mai intuitiv pentru designers.</p>
-          <pre class="cod-bloc"><span class="prop">color</span>: <span class="val">hsl(0, 100%, 50%)</span>;
-<span class="prop">background</span>: <span class="val">hsl(200, 100%, 50%)</span>;
-<span class="prop">border</span>: <span class="val">hsl(120, 100%, 50%)</span>;</pre>
-          <p style="font-size: 12px; color: #64748b; margin-top: 12px;">✓ Ușor de creat variații<br>✓ Gândire naturală</p>
-        </div>
-
-        <div class="format-card">
-          <div class="format-demo" style="background: hsla(9, 100%, 64%, 0.6);"></div>
-          <h4>6. HSLA (HSL + Alpha)</h4>
-          <p style="font-size: 13px;">Format: hsla(H, S%, L%, A) — HSL cu transparență.</p>
-          <pre class="cod-bloc"><span class="prop">background</span>: <span class="val">hsla(200, 100%, 50%, 0.8)</span>;
-<span class="prop">color</span>: <span class="val">hsla(0, 100%, 50%, 0.5)</span>;
-<span class="prop">border</span>: <span class="val">hsla(120, 70%, 60%, 0.9)</span>;</pre>
-          <p style="font-size: 12px; color: #64748b; margin-top: 12px;">✓ Cea mai flexibilă<br>✓ Transparență + control ușor</p>
+        <div class="card">
+          <div class="card-icon" style="background: #dcfce7; color: #15803d; font-size: 28px;">📐</div>
+          <h4>Unități Relative</h4>
+          <p style="font-size: 13px;">Folosește % , em, rem, vw/vh în loc de px pentru dimensiuni adaptabile.</p>
+          <p style="font-size: 13px; margin-top: 10px;"><code>width: 100%</code>, <code>font-size: 1.2rem</code>, <code>padding: 2em</code></p>
         </div>
       </div>
 
-      <h3 style="margin-top: 40px; margin-bottom: 20px;">Comparație Directă — Aceeași Culoare</h3>
-      <div class="comparison-box">
-        <p style="font-weight: bold; margin-bottom: 16px;">Toate aceste formule descriu culoarea roșie/tomato:</p>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
-          <div class="comparison-item">
-            <div class="comparison-swatch" style="background: red;"></div>
-            <pre class="cod-bloc" style="margin: 0;"><span class="val">red</span></pre>
-            <p style="font-size: 12px; color: #64748b; margin-top: 8px;">Nume</p>
+      <h3 style="margin-top: 40px; margin-bottom: 20px;">Viewport Meta Tag — Esențial!</h3>
+      <div class="demo-card">
+        <div class="viewport-demo">
+          <div class="device mobile">
+            <div class="screen">
+              <div class="content">Fără viewport</div>
+            </div>
           </div>
-          <div class="comparison-item">
-            <div class="comparison-swatch" style="background: #FF6347;"></div>
-            <pre class="cod-bloc" style="margin: 0;"><span class="val">#FF6347</span></pre>
-            <p style="font-size: 12px; color: #64748b; margin-top: 8px;">Hex</p>
-          </div>
-          <div class="comparison-item">
-            <div class="comparison-swatch" style="background: rgb(255, 99, 71);"></div>
-            <pre class="cod-bloc" style="margin: 0;"><span class="val">rgb(255, 99, 71)</span></pre>
-            <p style="font-size: 12px; color: #64748b; margin-top: 8px;">RGB</p>
-          </div>
-          <div class="comparison-item">
-            <div class="comparison-swatch" style="background: hsl(9, 100%, 64%);"></div>
-            <pre class="cod-bloc" style="margin: 0;"><span class="val">hsl(9, 100%, 64%)</span></pre>
-            <p style="font-size: 12px; color: #64748b; margin-top: 8px;">HSL</p>
+          <div class="device desktop">
+            <div class="screen">
+              <div class="content">Cu viewport</div>
+            </div>
           </div>
         </div>
+        <p class="demo-desc">Meta tag-ul viewport controlează cum browser-ul scalează pagina pe dispozitive mobile</p>
+        <pre class="cod-bloc"><span class="sel">&lt;meta</span> <span class="prop">name</span>=<span class="val">"viewport"</span> <span class="prop">content</span>=<span class="val">"width=device-width, initial-scale=1.0"</span><span class="sel">&gt;</span></pre>
       </div>
     </div>
   </section>
-
-
   <!-- ══════════════════════════════════
-       SECȚIUNEA 2 — BACKGROUNDS & GRADIENTS
+       SECȚIUNEA 2 — MEDIA QUERIES
   ══════════════════════════════════ -->
-  <section id="backgrounds" class="sectiune-alba">
+  <section id="media-queries" class="sectiune-alba">
     <div class="container">
-      <h2 class="titlu-sectiune">2. Background Properties</h2>
-      <p class="subtitlu-sectiune">Controlează fondul elementelor — culori, imagini, pozitii, dimensiuni</p>
+      <h2 class="titlu-sectiune">2. Media Queries — Inima Responsive Design</h2>
+      <p class="subtitlu-sectiune">Reguli CSS care se aplică doar când anumite condiții sunt îndeplinite</p>
 
       <div class="properties-grid">
-        <!-- background-color -->
+        <!-- Basic Media Query -->
         <div class="prop-card">
-          <h4>background-color</h4>
-          <p class="prop-desc">Culoarea de fundal a elementului</p>
-          <div class="demo-showcase" style="background-color: #0096C7; border: none;">
+          <h4>@media (max-width)</h4>
+          <p class="prop-desc">Se aplică când ecranul este mai mic decât valoarea specificată</p>
+          <div class="demo-showcase">
+            <div class="responsive-demo mobile-layout">
+              <div class="demo-item">1</div>
+              <div class="demo-item">2</div>
+              <div class="demo-item">3</div>
+            </div>
           </div>
-          <pre class="cod-bloc"><span class="prop">background-color</span>: <span class="val">#0096C7</span>;
-<span class="prop">background-color</span>: <span class="val">rgb(0, 150, 199)</span>;
-<span class="prop">background-color</span>: <span class="val">rgba(0, 150, 199, 0.5)</span>;</pre>
+          <pre class="cod-bloc"><span class="sel">@media</span> (<span class="prop">max-width</span>: <span class="val">768px</span>) {
+  <span class="sel">.container</span> {
+    <span class="prop">padding</span>: <span class="val">10px</span>;
+  }
+}</pre>
         </div>
 
-        <!-- background-image -->
+        <!-- min-width -->
         <div class="prop-card">
-          <h4>background-image</h4>
-          <p class="prop-desc">Imagine ca fundal (url sau gradient)</p>
-          <div class="demo-showcase" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none;"></div>
-          <pre class="cod-bloc"><span class="prop">background-image</span>: 
-  <span class="val">url('photo.jpg')</span>;
-<span class="prop">background-image</span>: 
-  <span class="val">linear-gradient(45deg, blue, red)</span>;</pre>
+          <h4>@media (min-width)</h4>
+          <p class="prop-desc">Se aplică când ecranul este mai mare decât valoarea specificată</p>
+          <div class="demo-showcase">
+            <div class="responsive-demo desktop-layout">
+              <div class="demo-item">1</div>
+              <div class="demo-item">2</div>
+              <div class="demo-item">3</div>
+            </div>
+          </div>
+          <pre class="cod-bloc"><span class="sel">@media</span> (<span class="prop">min-width</span>: <span class="val">768px</span>) {
+  <span class="sel">.grid</span> {
+    <span class="prop">display</span>: <span class="val">grid</span>;
+    <span class="prop">grid-template-columns</span>: <span class="val">1fr 1fr</span>;
+  }
+}</pre>
         </div>
 
-        <!-- background-size -->
+        <!-- Breakpoints -->
         <div class="prop-card">
-          <h4>background-size</h4>
-          <p class="prop-desc">Dimensiunea imaginii de fundal</p>
-          <div class="demo-showcase" style="background: repeating-linear-gradient(45deg, #06b6d4, #06b6d4 10px, #0891b2 10px, #0891b2 20px); border: none;"></div>
-          <pre class="cod-bloc"><span class="prop">background-size</span>: <span class="val">cover</span>;
-<span class="prop">background-size</span>: <span class="val">contain</span>;
-<span class="prop">background-size</span>: <span class="val">200px 100px</span>;</pre>
+          <h4>Breakpoint-uri Populare</h4>
+          <p class="prop-desc">Dimensiuni standard pentru diferite dispozitive</p>
+          <div class="breakpoints-list">
+            <div class="breakpoint-item">
+              <span class="device-name">📱 Mobile</span>
+              <span class="breakpoint-value">320px - 767px</span>
+            </div>
+            <div class="breakpoint-item">
+              <span class="device-name">📱 Tablet</span>
+              <span class="breakpoint-value">768px - 1023px</span>
+            </div>
+            <div class="breakpoint-item">
+              <span class="device-name">💻 Desktop</span>
+              <span class="breakpoint-value">1024px+</span>
+            </div>
+          </div>
+          <pre class="cod-bloc"><span class="cm">/* Mobile First */</span>
+<span class="sel">@media</span> (<span class="prop">min-width</span>: <span class="val">768px</span>) { <span class="cm">/* tablet */</span> }
+<span class="sel">@media</span> (<span class="prop">min-width</span>: <span class="val">1024px</span>) { <span class="cm">/* desktop */</span> }</pre>
         </div>
 
-        <!-- background-position -->
+        <!-- Orientation -->
         <div class="prop-card">
-          <h4>background-position</h4>
-          <p class="prop-desc">Poziția imaginii în cadrul containerului</p>
-          <div class="demo-showcase" style="background: linear-gradient(to right, #fbbf24, #f59e0b, #f97316); border: none;"></div>
-          <pre class="cod-bloc"><span class="prop">background-position</span>: <span class="val">center</span>;
-<span class="prop">background-position</span>: <span class="val">top left</span>;
-<span class="prop">background-position</span>: <span class="val">50% 50%</span>;</pre>
+          <h4>@media (orientation)</h4>
+          <p class="prop-desc">Detectează orientarea dispozitivului</p>
+          <div class="demo-showcase">
+            <div class="orientation-demo">
+              <div class="portrait">📱 Portret</div>
+              <div class="landscape">📱 Peisaj</div>
+            </div>
+          </div>
+          <pre class="cod-bloc"><span class="sel">@media</span> (<span class="prop">orientation</span>: <span class="val">portrait</span>) {
+  <span class="sel">.sidebar</span> {
+    <span class="prop">display</span>: <span class="val">none</span>;
+  }
+}</pre>
         </div>
 
-        <!-- background-repeat -->
+        <!-- Multiple Conditions -->
         <div class="prop-card">
-          <h4>background-repeat</h4>
-          <p class="prop-desc">Comportament repeat al imaginii</p>
-          <div class="demo-showcase" style="background: repeating-linear-gradient(90deg, #ec4899, #ec4899 20px, #f472b6 20px, #f472b6 40px); border: none;"></div>
-          <pre class="cod-bloc"><span class="prop">background-repeat</span>: <span class="val">repeat</span>;
-<span class="prop">background-repeat</span>: <span class="val">no-repeat</span>;
-<span class="prop">background-repeat</span>: <span class="val">repeat-x</span>;</pre>
+          <h4>Condiții Multiple</h4>
+          <p class="prop-desc">Combină mai multe condiții cu and, or, not</p>
+          <div class="demo-showcase">
+            <div class="conditions-demo">
+              <div class="condition">min-width: 768px</div>
+              <div class="operator">AND</div>
+              <div class="condition">max-width: 1024px</div>
+            </div>
+          </div>
+          <pre class="cod-bloc"><span class="sel">@media</span> (<span class="prop">min-width</span>: <span class="val">768px</span>) <span class="prop">and</span> 
+       (<span class="prop">max-width</span>: <span class="val">1024px</span>) {
+  <span class="sel">.tablet-only</span> {
+    <span class="prop">display</span>: <span class="val">block</span>;
+  }
+}</pre>
         </div>
 
-        <!-- background-attachment -->
+        <!-- prefers-color-scheme -->
         <div class="prop-card">
-          <h4>background-attachment</h4>
-          <p class="prop-desc">Fixează background-ul la scroll</p>
-          <div class="demo-showcase" style="background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%); border: none;"></div>
-          <pre class="cod-bloc"><span class="prop">background-attachment</span>: <span class="val">scroll</span>;
-<span class="prop">background-attachment</span>: <span class="val">fixed</span>;
-<span class="prop">background-attachment</span>: <span class="val">local</span>;</pre>
+          <h4>@media (prefers-color-scheme)</h4>
+          <p class="prop-desc">Detectează preferința utilizatorului pentru dark/light mode</p>
+          <div class="demo-showcase">
+            <div class="theme-demo">
+              <div class="light-theme">☀️ Light</div>
+              <div class="dark-theme">🌙 Dark</div>
+            </div>
+          </div>
+          <pre class="cod-bloc"><span class="sel">@media</span> (<span class="prop">prefers-color-scheme</span>: <span class="val">dark</span>) {
+  <span class="sel">body</span> {
+    <span class="prop">background</span>: <span class="val">#1a1a1a</span>;
+    <span class="prop">color</span>: <span class="val">#ffffff</span>;
+  }
+}</pre>
         </div>
-      </div>
-
-      <div style="margin-top: 40px; background-color: #f0fdf4; border-left: 4px solid #10B981; padding: 20px; border-radius: 8px;">
-        <p style="margin: 0; color: #15803d;"><strong>💡 Pro Tip:</strong> Folosește shorthand <code>background</code> pentru a combina mai multe proprietăți:</p>
-        <pre class="cod-bloc" style="margin-top: 12px; border-left-color: #10B981;"><span class="prop">background</span>: 
-  <span class="val">url('bg.jpg')</span> center / cover no-repeat fixed;</pre>
       </div>
     </div>
   </section>
-
-
   <!-- ══════════════════════════════════
-       SECȚIUNEA 3 — GRADIENTS
+       SECȚIUNEA 3 — RESPONSIVE LAYOUTS
   ══════════════════════════════════ -->
-  <section id="gradients">
+  <section id="layouts">
     <div class="container">
-      <h2 class="titlu-sectiune">3. Gradiente CSS</h2>
-      <p class="subtitlu-sectiune">Tranziții netede între culori — linear, radial, conic</p>
+      <h2 class="titlu-sectiune">3. Layout-uri Responsive</h2>
+      <p class="subtitlu-sectiune">Sisteme de layout care se adaptează la toate dimensiunile ecranului</p>
 
       <div class="grid-3">
-        <div class="gradient-card">
-          <h4>Linear Gradient</h4>
-          <p style="font-size: 13px;">Tranziție liniară între culori</p>
-          <div class="gradient-demo" style="background: linear-gradient(to right, #667eea 0%, #764ba2 100%);"></div>
-          <pre class="cod-bloc"><span class="prop">background</span>: 
-  <span class="val">linear-gradient</span>(
-    to right,
-    <span class="val">#667eea</span>,
-    <span class="val">#764ba2</span>
-  );</pre>
-        </div>
-
-        <div class="gradient-card">
-          <h4>Radial Gradient</h4>
-          <p style="font-size: 13px;">Radiază din centru spre exterior</p>
-          <div class="gradient-demo" style="background: radial-gradient(circle, #f093fb 0%, #f5576c 100%);"></div>
-          <pre class="cod-bloc"><span class="prop">background</span>: 
-  <span class="val">radial-gradient</span>(
-    circle,
-    <span class="val">#f093fb</span>,
-    <span class="val">#f5576c</span>
-  );</pre>
-        </div>
-
-        <div class="gradient-card">
-          <h4>Conic Gradient</h4>
-          <p style="font-size: 13px;">Rotație în jurul unui punct</p>
-          <div class="gradient-demo" style="background: conic-gradient(red, yellow, green, blue, red);"></div>
-          <pre class="cod-bloc"><span class="prop">background</span>: 
-  <span class="val">conic-gradient</span>(
-    red, yellow, green,
-    blue, red
-  );</pre>
-        </div>
-
-        <div class="gradient-card">
-          <h4>Multi-Color Linear</h4>
-          <p style="font-size: 13px;">Gradient cu mai mult de 2 culori</p>
-          <div class="gradient-demo" style="background: linear-gradient(45deg, #ff6b6b 0%, #ffd93d 25%, #6bcf7f 50%, #4d96ff 75%, #d946ef 100%);"></div>
-          <pre class="cod-bloc"><span class="prop">background</span>: 
-  <span class="val">linear-gradient</span>(45deg,
-    <span class="val">#ff6b6b</span>, <span class="val">#ffd93d</span>,
-    <span class="val">#6bcf7f</span>, <span class="val">#4d96ff</span>,
-    <span class="val">#d946ef</span>
-  );</pre>
-        </div>
-
-        <div class="gradient-card">
-          <h4>Repeating Gradient</h4>
-          <p style="font-size: 13px;">Repetă gradientul</p>
-          <div class="gradient-demo" style="background: repeating-linear-gradient(45deg, #FFD700 0px, #FFD700 10px, #FFA500 10px, #FFA500 20px);"></div>
-          <pre class="cod-bloc"><span class="prop">background</span>: 
-  <span class="val">repeating-linear-gradient</span>(
-    45deg,
-    <span class="val">#FFD700</span> 0px,
-    <span class="val">#FFA500</span> 20px
-  );</pre>
-        </div>
-
-        <div class="gradient-card">
-          <h4>Diagonal Gradient</h4>
-          <p style="font-size: 13px;">Unghi 45 grade</p>
-          <div class="gradient-demo" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);"></div>
-          <pre class="cod-bloc"><span class="prop">background</span>: 
-  <span class="val">linear-gradient</span>(135deg,
-    <span class="val">#a8edea</span>,
-    <span class="val">#fed6e3</span>
-  );</pre>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section id="interactive">
-    <div class="container">
-      <h2 class="titlu-sectiune">3. Cazuri de Utilizare — Interactiv</h2>
-      <p class="subtitlu-sectiune">Exemplele reale unde se folosește Flexbox — selectează pentru a vedea codul</p>
-
-      <div class="use-cases-controls">
-        <button class="use-case-btn active" onclick="switchUseCase('navbar')">🧭 Navbar</button>
-        <button class="use-case-btn" onclick="switchUseCase('cards')">🎴 Card Grid</button>
-        <button class="use-case-btn" onclick="switchUseCase('form')">📋 Form Layout</button>
-        <button class="use-case-btn" onclick="switchUseCase('buttons')">🔘 Button Group</button>
-        <button class="use-case-btn" onclick="switchUseCase('sidebar')">📌 Sidebar Layout</button>
-        <button class="use-case-btn" onclick="switchUseCase('center')">⭐ Center Content</button>
-      </div>
-
-      <!-- USE CASE 1: Navbar -->
-      <div class="use-case active" id="use-case-navbar">
-        <h3>🧭 Navbar — Meniu pe orizontală</h3>
-        <p class="use-case-desc">Utilizări: Site-uri, aplicații web, menu-uri fixe</p>
-        
-        <div class="demo-showcase">
-          <div class="navbar-demo">
-            <div class="nav-logo">LOGO</div>
-            <div class="nav-links">
-              <a href="#">Home</a>
-              <a href="#">Services</a>
-              <a href="#">About</a>
-              <a href="#">Contact</a>
-            </div>
-            <div class="nav-btn">Sign Up</div>
-          </div>
-        </div>
-
-        <pre class="cod-bloc"><span class="sel">.navbar</span> {
-  <span class="prop">display</span>: <span class="val">flex</span>;
-  <span class="prop">justify-content</span>: <span class="val">space-between</span>;
-  <span class="prop">align-items</span>: <span class="val">center</span>;
-  <span class="prop">padding</span>: <span class="val">16px 40px</span>;
-  <span class="prop">background</span>: <span class="val">#333</span>;
-}
-
-<span class="sel">.nav-links</span> {
-  <span class="prop">display</span>: <span class="val">flex</span>;
-  <span class="prop">gap</span>: <span class="val">24px</span>;
-}</pre>
-      </div>
-
-      <!-- USE CASE 2: Card Grid -->
-      <div class="use-case" id="use-case-cards">
-        <h3>🎴 Card Grid — Rânduri de card-uri cu wrapping</h3>
-        <p class="use-case-desc">Utilizări: Portofolii, galerии, produse, blog-uri</p>
-        
-        <div class="demo-showcase">
-          <div class="cards-demo">
-            <div class="card-item">
-              <div class="card-img"></div>
-              <h4>Titlu Card 1</h4>
-              <p>Descriere scurtă</p>
-            </div>
-            <div class="card-item">
-              <div class="card-img"></div>
-              <h4>Titlu Card 2</h4>
-              <p>Descriere scurtă</p>
-            </div>
-            <div class="card-item">
-              <div class="card-img"></div>
-              <h4>Titlu Card 3</h4>
-              <p>Descriere scurtă</p>
-            </div>
-            <div class="card-item">
-              <div class="card-img"></div>
-              <h4>Titlu Card 4</h4>
-              <p>Descriere scurtă</p>
+        <div class="layout-card">
+          <h4>📱 Mobile-First Layout</h4>
+          <p style="font-size: 13px;">Începe cu mobil, adaugă pentru ecrane mai mari</p>
+          <div class="layout-demo mobile-first">
+            <div class="mobile-stack">
+              <div class="stack-item">Header</div>
+              <div class="stack-item">Content</div>
+              <div class="stack-item">Footer</div>
             </div>
           </div>
-        </div>
-
-        <pre class="cod-bloc"><span class="sel">.cards-container</span> {
-  <span class="prop">display</span>: <span class="val">flex</span>;
-  <span class="prop">flex-wrap</span>: <span class="val">wrap</span>;
-  <span class="prop">gap</span>: <span class="val">20px</span>;
-}
-
-<span class="sel">.card</span> {
-  <span class="prop">flex</span>: <span class="val">1 1 calc(25% - 20px)</span>;
-  <span class="prop">min-width</span>: <span class="val">200px</span>;
-  <span class="prop">background</span>: <span class="val">white</span>;
-  <span class="prop">border-radius</span>: <span class="val">8px</span>;
-}</pre>
-      </div>
-
-      <!-- USE CASE 3: Form Layout -->
-      <div class="use-case" id="use-case-form">
-        <h3>📋 Form Layout — Input + Button pe aceeași linie</h3>
-        <p class="use-case-desc">Utilizări: Search bars, newsletter signup, input groups</p>
-        
-        <div class="demo-showcase">
-          <div class="form-demo-flex">
-            <input type="email" placeholder="Introdu email..." class="form-input">
-            <button class="form-btn">Abonează-te</button>
-          </div>
-        </div>
-
-        <pre class="cod-bloc"><span class="sel">.form-group</span> {
-  <span class="prop">display</span>: <span class="val">flex</span>;
-  <span class="prop">gap</span>: <span class="val">8px</span>;
-}
-
-<span class="sel">.form-input</span> {
-  <span class="prop">flex</span>: <span class="val">1</span>; <span class="cm">/* ia tot spațiul disponibil */</span>
+          <pre class="cod-bloc"><span class="cm">/* Mobile (default) */</span>
+<span class="sel">.container</span> {
   <span class="prop">padding</span>: <span class="val">10px</span>;
-  <span class="prop">border</span>: <span class="val">1px solid #ddd</span>;
-  <span class="prop">border-radius</span>: <span class="val">4px</span>;
 }
 
-<span class="sel">.form-btn</span> {
-  <span class="prop">flex</span>: <span class="val">0 0 auto</span>; <span class="cm">/* nu crește */</span>
-  <span class="prop">padding</span>: <span class="val">10px 24px</span>;
+<span class="cm">/* Tablet și desktop */</span>
+<span class="sel">@media</span> (<span class="prop">min-width</span>: <span class="val">768px</span>) {
+  <span class="sel">.container</span> {
+    <span class="prop">padding</span>: <span class="val">20px</span>;
+  }
 }</pre>
-      </div>
-
-      <!-- USE CASE 4: Button Group -->
-      <div class="use-case" id="use-case-buttons">
-        <h3>🔘 Button Group — Butoane în linie cu spațiu egal</h3>
-        <p class="use-case-desc">Utilizări: Controale, pagination, action buttons</p>
-        
-        <div class="demo-showcase">
-          <div class="button-group">
-            <button class="group-btn">← Previous</button>
-            <button class="group-btn">1</button>
-            <button class="group-btn">2</button>
-            <button class="group-btn">3</button>
-            <button class="group-btn">Next →</button>
-          </div>
         </div>
 
-        <pre class="cod-bloc"><span class="sel">.button-group</span> {
-  <span class="prop">display</span>: <span class="val">flex</span>;
-  <span class="prop">gap</span>: <span class="val">8px</span>;
-  <span class="prop">justify-content</span>: <span class="val">center</span>;
-}
-
-<span class="sel">.group-btn</span> {
-  <span class="prop">flex</span>: <span class="val">0 0 auto</span>;
-  <span class="prop">padding</span>: <span class="val">10px 16px</span>;
-  <span class="prop">border</span>: <span class="val">1px solid #0096C7</span>;
-}</pre>
-      </div>
-
-      <!-- USE CASE 5: Sidebar Layout -->
-      <div class="use-case" id="use-case-sidebar">
-        <h3>📌 Sidebar Layout — Bara laterală + conținut</h3>
-        <p class="use-case-desc">Utilizări: Admin panels, dashboards, blogs cu sidebar</p>
-        
-        <div class="demo-showcase">
-          <div class="sidebar-demo">
-            <div class="sidebar">
-              <div class="sidebar-item">Menu 1</div>
-              <div class="sidebar-item">Menu 2</div>
-              <div class="sidebar-item">Menu 3</div>
-            </div>
-            <div class="content-area">
-              <div class="content-block">Main Content</div>
+        <div class="layout-card">
+          <h4>🔄 Fluid Layout</h4>
+          <p style="font-size: 13px;">Layout care se scalează fluid cu viewport-ul</p>
+          <div class="layout-demo fluid">
+            <div class="fluid-container">
+              <div class="fluid-sidebar">Sidebar</div>
+              <div class="fluid-main">Main Content</div>
             </div>
           </div>
-        </div>
-
-        <pre class="cod-bloc"><span class="sel">.container</span> {
-  <span class="prop">display</span>: <span class="val">flex</span>;
-  <span class="prop">gap</span>: <span class="val">20px</span>;
+          <pre class="cod-bloc"><span class="sel">.container</span> {
+  <span class="prop">width</span>: <span class="val">90vw</span>; <span class="cm">/* 90% din viewport width */</span>
+  <span class="prop">max-width</span>: <span class="val">1200px</span>;
+  <span class="prop">margin</span>: <span class="val">0 auto</span>;
 }
 
 <span class="sel">.sidebar</span> {
-  <span class="prop">flex</span>: <span class="val">0 0 250px</span>; <span class="cm">/* lățime fixă */</span>
-  <span class="prop">display</span>: <span class="val">flex</span>;
-  <span class="prop">flex-direction</span>: <span class="val">column</span>;
+  <span class="prop">width</span>: <span class="val">25vw</span>; <span class="cm">/* 25% din viewport */</span>
+  <span class="prop">min-width</span>: <span class="val">200px</span>;
+}</pre>
+        </div>
+
+        <div class="layout-card">
+          <h4>📐 CSS Grid Responsive</h4>
+          <p style="font-size: 13px;">Grid care se adaptează la dimensiunea ecranului</p>
+          <div class="layout-demo grid-responsive">
+            <div class="grid-item">1</div>
+            <div class="grid-item">2</div>
+            <div class="grid-item">3</div>
+            <div class="grid-item">4</div>
+            <div class="grid-item">5</div>
+            <div class="grid-item">6</div>
+          </div>
+          <pre class="cod-bloc"><span class="sel">.grid</span> {
+  <span class="prop">display</span>: <span class="val">grid</span>;
+  <span class="prop">grid-template-columns</span>: 
+    <span class="val">repeat(auto-fit, minmax(250px, 1fr))</span>;
+  <span class="prop">gap</span>: <span class="val">20px</span>;
+}</pre>
+        </div>
+
+        <div class="layout-card">
+          <h4>📱 Hamburger Menu</h4>
+          <p style="font-size: 13px;">Meniu ascuns pe mobil, vizibil pe desktop</p>
+          <div class="layout-demo hamburger">
+            <div class="hamburger-menu">
+              <div class="hamburger-icon">☰</div>
+              <nav class="hamburger-nav">
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+              </nav>
+            </div>
+          </div>
+          <pre class="cod-bloc"><span class="sel">.nav</span> {
+  <span class="prop">display</span>: <span class="val">none</span>;
 }
 
-<span class="sel">.content</span> {
+<span class="sel">@media</span> (<span class="prop">min-width</span>: <span class="val">768px</span>) {
+  <span class="sel">.nav</span> {
+    <span class="prop">display</span>: <span class="val">flex</span>;
+  }
+}</pre>
+        </div>
+
+        <div class="layout-card">
+          <h4>📊 Holy Grail Layout</h4>
+          <p style="font-size: 13px;">Header, sidebar-uri, footer, content central</p>
+          <div class="layout-demo holy-grail">
+            <header>H</header>
+            <nav>N</nav>
+            <main>M</main>
+            <aside>A</aside>
+            <footer>F</footer>
+          </div>
+          <pre class="cod-bloc"><span class="sel">.holy-grail</span> {
+  <span class="prop">display</span>: <span class="val">grid</span>;
+  <span class="prop">grid-template</span>: 
+    <span class="val">"header header" auto</span>
+    <span class="val">"nav main" 1fr</span>
+    <span class="val">"nav aside" 200px</span>
+    <span class="val">"footer footer" auto</span>;
+}</pre>
+        </div>
+
+        <div class="layout-card">
+          <h4>🎯 Container Queries</h4>
+          <p style="font-size: 13px;">Responsive bazat pe dimensiunea containerului</p>
+          <div class="layout-demo container-query">
+            <div class="cq-card small">Small Card</div>
+            <div class="cq-card large">Large Card</div>
+          </div>
+          <pre class="cod-bloc"><span class="sel">@container</span> (<span class="prop">min-width</span>: <span class="val">400px</span>) {
+  <span class="sel">.card</span> {
+    <span class="prop">display</span>: <span class="val">flex</span>;
+    <span class="prop">gap</span>: <span class="val">20px</span>;
+  }
+}</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ══════════════════════════════════
+       SECȚIUNEA 4 — RESPONSIVE IMAGES
+  ══════════════════════════════════ -->
+  <section id="images" class="sectiune-alba">
+    <div class="container">
+      <h2 class="titlu-sectiune">4. Imagini Responsive</h2>
+      <p class="subtitlu-sectiune">Imagini care se adaptează la toate dispozitivele și vitezele de conexiune</p>
+
+      <div class="grid-2">
+        <div class="image-card">
+          <h4>📱 Responsive Images cu srcset</h4>
+          <p style="font-size: 13px;">Browser-ul alege imaginea potrivită pentru dispozitiv</p>
+          <div class="image-demo">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRDNGQURCIi8+Cjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iMC4zNWVtIiBmaWxsPSIjZmZmZmZmIiBmb250LXNpemU9IjE2cHgiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiI+UmVzcG9uc2l2ZSBJbWFnZTwvdGV4dD4KPHN2Zz4K" alt="Responsive Image" style="width: 100%; height: auto; border-radius: 8px;">
+          </div>
+          <pre class="cod-bloc"><span class="sel">&lt;img</span> <span class="prop">src</span>=<span class="val">"small.jpg"</span>
+     <span class="prop">srcset</span>=<span class="val">"small.jpg 480w,
+             medium.jpg 768w,
+             large.jpg 1024w"</span>
+     <span class="prop">sizes</span>=<span class="val">"(max-width: 768px) 100vw,
+            50vw"</span>
+     <span class="prop">alt</span>=<span class="val">"Description"</span><span class="sel">&gt;</span></pre>
+        </div>
+
+        <div class="image-card">
+          <h4>🎨 Picture Element</h4>
+          <p style="font-size: 13px;">Diferite imagini pentru diferite contexte</p>
+          <div class="image-demo">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRjU5RTBCIi8+Cjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iMC4zNWVtIiBmaWxsPSIjZmZmZmZmIiBmb250LXNpemU9IjE0cHgiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiI+UGljdHVyZSBFbGVtZW50PC90ZXh0Pgo8L3N2Zz4K" alt="Picture Element" style="width: 100%; height: auto; border-radius: 8px;">
+          </div>
+          <pre class="cod-bloc"><span class="sel">&lt;picture&gt;</span>
+  <span class="sel">&lt;source</span> <span class="prop">media</span>=<span class="val">"(max-width: 768px)"</span>
+          <span class="prop">srcset</span>=<span class="val">"mobile.jpg"</span><span class="sel">&gt;</span>
+  <span class="sel">&lt;source</span> <span class="prop">media</span>=<span class="val">"(min-width: 769px)"</span>
+          <span class="prop">srcset</span>=<span class="val">"desktop.jpg"</span><span class="sel">&gt;</span>
+  <span class="sel">&lt;img</span> <span class="prop">src</span>=<span class="val">"fallback.jpg"</span> 
+       <span class="prop">alt</span>=<span class="val">"Description"</span><span class="sel">&gt;</span>
+<span class="sel">&lt;/picture&gt;</span></pre>
+        </div>
+
+        <div class="image-card">
+          <h4>📏 CSS max-width pentru Responsive</h4>
+          <p style="font-size: 13px;">Imagini care nu depășesc containerul părinte</p>
+          <div class="image-demo">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjMTBCOTgxIi8+Cjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iMC4zNWVtIiBmaWxsPSIjZmZmZmZmIiBmb250LXNpemU9IjEycHgiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiI+bWF4LXdpZHRoOiAxMDAlPC90ZXh0Pgo8L3N2Zz4K" alt="CSS max-width" style="width: 100%; height: auto; border-radius: 8px;">
+          </div>
+          <pre class="cod-bloc"><span class="sel">img</span> {
+  <span class="prop">max-width</span>: <span class="val">100%</span>; <span class="cm">/* Nu depășește containerul */</span>
+  <span class="prop">height</span>: <span class="val">auto</span>;    <span class="cm">/* Menține proporțiile */</span>
+}
+
+<span class="sel">@media</span> (<span class="prop">max-width</span>: <span class="val">768px</span>) {
+  <span class="sel">img</span> {
+    <span class="prop">width</span>: <span class="val">100%</span>; <span class="cm">/* Full width pe mobil */</span>
+  }
+}</pre>
+        </div>
+
+        <div class="image-card">
+          <h4>🎭 Aspect Ratio cu CSS</h4>
+          <p style="font-size: 13px;">Menține proporțiile fără să specifici height</p>
+          <div class="image-demo aspect-ratio">
+            <div class="aspect-container">
+              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjOUI1REVGIi8+Cjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iMC4zNWVtIiBmaWxsPSIjZmZmZmZmIiBmb250LXNpemU9IjEycHgiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiI+QXNwZWN0IFJhdGlvIDE2OjE8L3RleHQ+Cjwvc3ZnPgo=" alt="Aspect Ratio" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+            </div>
+          </div>
+          <pre class="cod-bloc"><span class="sel">.aspect-ratio</span> {
+  <span class="prop">aspect-ratio</span>: <span class="val">16 / 9</span>; <span class="cm">/* 16:9 ratio */</span>
+}
+
+<span class="sel">.image</span> {
+  <span class="prop">width</span>: <span class="val">100%</span>;
+  <span class="prop">height</span>: <span class="val">100%</span>;
+  <span class="prop">object-fit</span>: <span class="val">cover</span>; <span class="cm">/* Crop pentru a umple */</span>
+}</pre>
+        </div>
+      </div>
+
+      <div style="margin-top: 40px; background-color: #f0f9ff; border-left: 4px solid #0096C7; padding: 20px; border-radius: 8px;">
+        <p style="margin: 0; color: #0096C7;"><strong>💡 Pro Tip:</strong> Folosește <code>loading="lazy"</code> pentru imagini care nu sunt vizibile imediat:</p>
+        <pre class="cod-bloc" style="margin-top: 12px; border-left-color: #0096C7;"><span class="sel">&lt;img</span> <span class="prop">src</span>=<span class="val">"image.jpg"</span> 
+     <span class="prop">loading</span>=<span class="val">"lazy"</span> 
+     <span class="prop">alt</span>=<span class="val">"Description"</span><span class="sel">&gt;</span></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       SECȚIUNEA 5 — RESPONSIVE INTERACTIVE
+  ══════════════════════════════════ -->
+  <section id="interactive">
+    <div class="container">
+      <h2 class="titlu-sectiune">5. Cazuri de Utilizare — Interactiv</h2>
+      <p class="subtitlu-sectiune">Exemplele reale unde se folosește Responsive Design — selectează pentru a vedea codul</p>
+
+      <div class="use-cases-controls">
+        <button class="use-case-btn active" onclick="switchUseCase('mobile-menu')">📱 Mobile Menu</button>
+        <button class="use-case-btn" onclick="switchUseCase('responsive-grid')">📐 Responsive Grid</button>
+        <button class="use-case-btn" onclick="switchUseCase('fluid-layout')">🌊 Fluid Layout</button>
+        <button class="use-case-btn" onclick="switchUseCase('media-queries')">📱 Media Queries</button>
+        <button class="use-case-btn" onclick="switchUseCase('container-queries')">🎯 Container Queries</button>
+        <button class="use-case-btn" onclick="switchUseCase('responsive-images')">🖼️ Responsive Images</button>
+      </div>
+
+      <!-- USE CASE 1: Mobile Menu -->
+      <div class="use-case active" id="use-case-mobile-menu">
+        <h3>📱 Mobile Menu — Hamburger menu care se transformă</h3>
+        <p class="use-case-desc">Utilizări: Site-uri mobile, aplicații responsive, navigation bars</p>
+        
+        <div class="demo-showcase">
+          <div class="mobile-menu-demo">
+            <div class="mobile-header">
+              <div class="mobile-logo">LOGO</div>
+              <div class="hamburger">☰</div>
+            </div>
+            <nav class="mobile-nav">
+              <a href="#">Home</a>
+              <a href="#">About</a>
+              <a href="#">Services</a>
+              <a href="#">Contact</a>
+            </nav>
+          </div>
+        </div>
+
+        <pre class="cod-bloc"><span class="sel">.mobile-nav</span> {
+  <span class="prop">display</span>: <span class="val">none</span>; <span class="cm">/* Ascuns pe mobil */</span>
+}
+
+<span class="sel">@media</span> (<span class="prop">min-width</span>: <span class="val">768px</span>) {
+  <span class="sel">.mobile-nav</span> {
+    <span class="prop">display</span>: <span class="val">flex</span>; <span class="cm">/* Vizibil pe desktop */</span>
+    <span class="prop">gap</span>: <span class="val">20px</span>;
+  }
+}</pre>
+      </div>
+
+      <!-- USE CASE 2: Responsive Grid -->
+      <div class="use-case" id="use-case-responsive-grid">
+        <h3>📐 Responsive Grid — Grid care se adaptează la ecran</h3>
+        <p class="use-case-desc">Utilizări: Galeriii, portofolii, layout-uri de conținut</p>
+        
+        <div class="demo-showcase">
+          <div class="responsive-grid-demo">
+            <div class="grid-item">1</div>
+            <div class="grid-item">2</div>
+            <div class="grid-item">3</div>
+            <div class="grid-item">4</div>
+            <div class="grid-item">5</div>
+            <div class="grid-item">6</div>
+            <div class="grid-item">7</div>
+            <div class="grid-item">8</div>
+          </div>
+        </div>
+
+        <pre class="cod-bloc"><span class="sel">.responsive-grid</span> {
+  <span class="prop">display</span>: <span class="val">grid</span>;
+  <span class="prop">grid-template-columns</span>: 
+    <span class="val">repeat(auto-fit, minmax(250px, 1fr))</span>;
+  <span class="prop">gap</span>: <span class="val">20px</span>;
+}
+
+<span class="sel">@media</span> (<span class="prop">max-width</span>: <span class="val">768px</span>) {
+  <span class="sel">.responsive-grid</span> {
+    <span class="prop">grid-template-columns</span>: 
+      <span class="val">repeat(auto-fit, minmax(150px, 1fr))</span>;
+  }
+}</pre>
+      </div>
+
+      <!-- USE CASE 3: Fluid Layout -->
+      <div class="use-case" id="use-case-fluid-layout">
+        <h3>🌊 Fluid Layout — Layout care curge cu viewport-ul</h3>
+        <p class="use-case-desc">Utilizări: Layout-uri moderne, design-uri fluide, responsive websites</p>
+        
+        <div class="demo-showcase">
+          <div class="fluid-layout-demo">
+            <header class="fluid-header">Header</header>
+            <div class="fluid-content">
+              <aside class="fluid-sidebar">Sidebar</aside>
+              <main class="fluid-main">Main Content</main>
+            </div>
+            <footer class="fluid-footer">Footer</footer>
+          </div>
+        </div>
+
+        <pre class="cod-bloc"><span class="sel">.fluid-content</span> {
+  <span class="prop">display</span>: <span class="val">flex</span>;
+  <span class="prop">gap</span>: <span class="val">20px</span>;
+}
+
+<span class="sel">.fluid-sidebar</span> {
+  <span class="prop">flex</span>: <span class="val">0 0 25vw</span>; <span class="cm">/* 25% din viewport */</span>
+  <span class="prop">min-width</span>: <span class="val">200px</span>;
+  <span class="prop">max-width</span>: <span class="val">300px</span>;
+}
+
+<span class="sel">.fluid-main</span> {
   <span class="prop">flex</span>: <span class="val">1</span>; <span class="cm">/* ia spațiul rămas */</span>
 }</pre>
       </div>
 
-      <!-- USE CASE 6: Center Content -->
-      <div class="use-case" id="use-case-center">
-        <h3>⭐ Center Content — Centrarea perfectă (orizontal + vertical)</h3>
-        <p class="use-case-desc">Utilizări: Hero sections, splash screens, empty states</p>
+      <!-- USE CASE 4: Media Queries -->
+      <div class="use-case" id="use-case-media-queries">
+        <h3>📱 Media Queries — Breakpoints pentru diferite ecrane</h3>
+        <p class="use-case-desc">Utilizări: Responsive design, mobile optimization, tablet layouts</p>
         
-        <div class="demo-showcase center-demo-box">
-          <div class="center-flex">
-            <div class="center-content">
-              <h4>Perfect Centered</h4>
-              <p>Atât orizontal cât și vertical</p>
+        <div class="demo-showcase">
+          <div class="media-query-demo">
+            <div class="mq-phone">📱 Phone</div>
+            <div class="mq-tablet">📱 Tablet</div>
+            <div class="mq-desktop">💻 Desktop</div>
+          </div>
+        </div>
+
+        <pre class="cod-bloc"><span class="cm">/* Mobile First */</span>
+<span class="sel">.container</span> {
+  <span class="prop">padding</span>: <span class="val">10px</span>;
+}
+
+<span class="cm">/* Tablet */</span>
+<span class="sel">@media</span> (<span class="prop">min-width</span>: <span class="val">768px</span>) {
+  <span class="sel">.container</span> {
+    <span class="prop">padding</span>: <span class="val">20px</span>;
+  }
+}
+
+<span class="cm">/* Desktop */</span>
+<span class="sel">@media</span> (<span class="prop">min-width</span>: <span class="val">1024px</span>) {
+  <span class="sel">.container</span> {
+    <span class="prop">padding</span>: <span class="val">40px</span>;
+  }
+}</pre>
+      </div>
+
+      <!-- USE CASE 5: Container Queries -->
+      <div class="use-case" id="use-case-container-queries">
+        <h3>🎯 Container Queries — Responsive bazat pe container</h3>
+        <p class="use-case-desc">Utilizări: Componente reutilizabile, card-uri adaptive, layout-uri modulare</p>
+        
+        <div class="demo-showcase">
+          <div class="container-query-demo">
+            <div class="cq-container small">
+              <div class="cq-card">
+                <h4>Small Container</h4>
+                <p>Single column layout</p>
+              </div>
+            </div>
+            <div class="cq-container large">
+              <div class="cq-card">
+                <h4>Large Container</h4>
+                <p>Multi-column layout</p>
+              </div>
             </div>
           </div>
         </div>
 
-        <pre class="cod-bloc"><span class="sel">.container</span> {
-  <span class="prop">display</span>: <span class="val">flex</span>;
-  <span class="prop">justify-content</span>: <span class="val">center</span>; <span class="cm">/* orizontal */</span>
-  <span class="prop">align-items</span>: <span class="val">center</span>;     <span class="cm">/* vertical */</span>
-  <span class="prop">height</span>: <span class="val">400px</span>;
+        <pre class="cod-bloc"><span class="sel">.cq-container</span> {
+  <span class="prop">container-type</span>: <span class="val">inline-size</span>;
 }
 
-<span class="cm">/* aceasta este soluția flexbox ideală! */</span></pre>
+<span class="sel">@container</span> (<span class="prop">min-width</span>: <span class="val">400px</span>) {
+  <span class="sel">.cq-card</span> {
+    <span class="prop">display</span>: <span class="val">flex</span>;
+    <span class="prop">gap</span>: <span class="val">20px</span>;
+  }
+}</pre>
+      </div>
+
+      <!-- USE CASE 6: Responsive Images -->
+      <div class="use-case" id="use-case-responsive-images">
+        <h3>🖼️ Responsive Images — Imagini pentru toate dispozitivele</h3>
+        <p class="use-case-desc">Utilizări: Performance optimization, bandwidth saving, art direction</p>
+        
+        <div class="demo-showcase">
+          <div class="responsive-image-demo">
+            <picture>
+              <source media="(max-width: 768px)" srcset="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRjU5RTBCIi8+Cjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iMC4zNWVtIiBmaWxsPSIjZmZmZmZmIiBmb250LXNpemU9IjE0cHgiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiI+TW9iaWxlIEltYWdlPC90ZXh0Pgo8L3N2Zz4K">
+              <source media="(min-width: 769px)" srcset="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDQwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjMTBCOTgxIi8+Cjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iMC4zNWVtIiBmaWxsPSIjZmZmZmZmIiBmb250LXNpemU9IjE0cHgiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiI+RGVza3RvcCBJbWFnZTwvdGV4dD4KPHN2Zz4K">
+              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRDNGQURCIi8+Cjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iMC4zNWVtIiBmaWxsPSIjZmZmZmZmIiBmb250LXNpemU9IjE0cHgiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiI+UmVzcG9uc2l2ZSBJbWFnZTwvdGV4dD4KPHN2Zz4K" alt="Responsive Image" style="width: 100%; height: auto; border-radius: 8px;">
+            </picture>
+          </div>
+        </div>
+
+        <pre class="cod-bloc"><span class="sel">&lt;picture&gt;</span>
+  <span class="sel">&lt;source</span> <span class="prop">media</span>=<span class="val">"(max-width: 768px)"</span>
+          <span class="prop">srcset</span>=<span class="val">"mobile.jpg"</span><span class="sel">&gt;</span>
+  <span class="sel">&lt;source</span> <span class="prop">media</span>=<span class="prop">"(min-width: 769px)"</span>
+          <span class="prop">srcset</span>=<span class="val">"desktop.jpg"</span><span class="sel">&gt;</span>
+  <span class="sel">&lt;img</span> <span class="prop">src</span>=<span class="val">"fallback.jpg"</span> 
+       <span class="prop">alt</span>=<span class="val">"Description"</span><span class="sel">&gt;</span>
+<span class="sel">&lt;/picture&gt;</span></pre>
       </div>
 
     </div>
@@ -515,8 +641,8 @@
        FOOTER
   ══════════════════════════════════ -->
   <footer>
-    <p><strong>Flexbox Masterclass</strong> — Curs video complet și interactiv</p>
-    <p>De la fundații la cazuri reale · Toate proprietățile · Exemple live</p>
+    <p><strong>Responsive Design Masterclass</strong> — Curs video complet și interactiv</p>
+    <p>De la fundații la cazuri reale · Toate tehnicile · Exemple live</p>
     <p style="margin-top:12px; font-size:12px;">Realizat cu HTML + CSS + JavaScript · Gata pentru curs video</p>
   </footer>
 
